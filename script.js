@@ -1,3 +1,4 @@
+/* Function to create a random hexadecimal color */
 function getRandomColor() {
     const letters = '0123456789ABFDEC'
     let color = '#';
@@ -7,12 +8,15 @@ function getRandomColor() {
     return color;
 }
 
+/* Function to change the paragraph background color to a random color*/
 function changeBackgroundColor() {
     const paragraph = document.getElementById('myParagraph');
     const randomColor = getRandomColor();
     paragraph.style.backgroundColor = randomColor;
 }
 
+/* Function to add a new row of 3 input box tables */
+/* Each input box will display 'Input #' */
 function addTableRow() {
     const table = document.getElementById('myTable');
 
@@ -26,3 +30,49 @@ function addTableRow() {
         newCell.appendChild(input);
     }
 }
+
+/* Function to validate if input is an actual number */ 
+function isNumber(value) {
+    return !isNaN(value) && !isNaN(parseFloat(value));
+}
+
+/* Function will take input, validate results, and then display results */
+/* If results are a number show green text */
+/* If results are not a number, show red text */
+function validateInput() {
+    const input = document.getElementById('numberInput').value;
+    const result = document.getElementById('result');
+    
+    if (isNumber(input)) {
+        result.textContent = `${input} is a valid number.`;
+        result.style.color = 'green';
+    } else {
+        result.textContent = `${input} is not a valid number.`;
+        result.style.color = 'red';
+    }
+}
+
+/* Function to clear input to enter in new number for results */
+function clearResults() {
+    const result = document.getElementById('result');
+    const input = document.getElementById('numberInput');
+
+    result.textContent = '';
+    input.value = '';
+}
+
+/*  */
+document.addEventListener('DOMContentLoaded', (event) => {
+    const button = document.getElementById('myButton');
+
+    button.addEventListener('click', () => {
+        alert('Click!');
+
+        fetch('github.com/spowers0409/JS_ajax', {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error', error));
+    });
+});
