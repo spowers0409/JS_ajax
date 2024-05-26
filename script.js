@@ -61,7 +61,7 @@ function clearResults() {
     input.value = '';
 }
 
-/*  */
+/* Listner to capture click event  */
 document.addEventListener('DOMContentLoaded', (event) => {
     const button = document.getElementById('myButton');
 
@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
+/* Create a button class and event listener to direct to Github page */
 document.addEventListener('DOMContentLoaded', (event) => {
     const button = document.createElement('button');
     button.classList.add('github-button');
